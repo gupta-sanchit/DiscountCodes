@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Start Client & Server",
+    "Projects": [
+      {
+        "Path": "DiscountCodes.GrpcService\\DiscountCodes.GrpcService.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "DiscountCodes.Grpc.Client\\DiscountCodes.Grpc.Client.csproj",
+        "Action": "Start",
+        "DebugTarget": "DiscountCodes.Grpc.Client"
+      }
+    ]
+  }
+]

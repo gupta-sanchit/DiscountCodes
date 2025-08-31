@@ -1,0 +1,26 @@
+syntax = "proto3";
+option csharp_namespace = "DiscountCodes.Grpc";
+package discount;
+
+service Discount {
+  rpc Generate (GenerateRequest) returns (GenerateResponse);
+  rpc UseCode  (UseCodeRequest)  returns (UseCodeResponse);
+}
+
+message GenerateRequest {
+  uint32 count  = 1;  // <= 2000, //ushort is not a valid protobuf type.
+  bytes length = 2;  // 7 or 8
+}
+
+message GenerateResponse {
+  bool result = 1; // true if all requested codes were persisted
+  repeated string codes = 2;    // the codes actually created in this call
+}
+
+message UseCodeRequest {
+  string code = 1;    // 7-8 uppercase
+}
+
+message UseCodeResponse {
+  bytes result = 1;  // 0=success, 1=invalid, 2=already used
+}
